@@ -6,4 +6,9 @@
     <string name="default_man_name">Default man name</string>
     <string name="default_woman_name">Default woman name</string>
     <string name="default_sum">50</string>
+    <string name="games_list">Games list</string>
+    <string name="winner">Winner:</string>
+    <string name="nickname">nickName</string>
+    <string name="result">Result:</string>
+    <string name="game_name">Game Name</string>
 </resources>

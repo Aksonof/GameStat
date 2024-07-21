@@ -1,16 +1,16 @@
 package com.example.everdalestat.model
 
+import kotlinx.coroutines.flow.Flow
+
 class GameRepository(private val gameDao: GameDao) {
 
-    suspend fun insert(gameResult: GameResult) {
-        gameDao.insert(gameResult)
+    val allGames: Flow<List<Game>> = gameDao.getAllGames()
+
+    suspend fun insert(game: Game) {
+        gameDao.insertGame(game)
     }
 
-    suspend fun getAllGames(): List<GameResult> {
-        return gameDao.getAllGames()
-    }
-
-    suspend fun delete(gameResult: GameResult) {
-        gameDao.delete(gameResult)
+    suspend fun delete(game: Game) {
+        gameDao.delete(game)
     }
 }

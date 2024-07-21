@@ -9,15 +9,28 @@
         android:name="com.example.everdalestat.fragments.HelloFragment"
         android:label="HelloFragment" >
         <action
-            android:id="@+id/action_helloFragment_to_statFragment"
-            app:destination="@id/statFragment"
-            app:enterAnim="@anim/fade_out"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_out"
-            app:popExitAnim="@anim/fade_out" />
+            android:id="@+id/action_helloFragment_to_gamesFragment"
+            app:destination="@id/gamesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/statFragment"
         android:name="com.example.everdalestat.fragments.StatFragment"
         android:label="StatFragment" />
+    <fragment
+        android:id="@+id/gamesFragment"
+        android:name="com.example.everdalestat.fragments.GamesFragment"
+        android:label="GamesFragment" >
+        <action
+            android:id="@+id/action_gamesFragment_to_statFragment"
+            app:destination="@id/statFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_in"
+            />
+    </fragment>
 </navigation>

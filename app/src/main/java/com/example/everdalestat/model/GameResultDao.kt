@@ -9,15 +9,15 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface GameDao {
+interface GameResultDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertGame(game: Game)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(gameResult: GameResult)
 
-    @Query("SELECT * FROM game_table")
-    fun getAllGames(): Flow<List<Game>>
+    @Query("SELECT * FROM result_table")
+    fun getAllGames(): Flow<List<GameResult>>
 
     @Delete
-    suspend fun delete(game: Game)
+    suspend fun delete(gameResult: GameResult)
 
 }

@@ -7,30 +7,53 @@
     <fragment
         android:id="@+id/helloFragment"
         android:name="com.example.everdalestat.fragments.HelloFragment"
-        android:label="HelloFragment" >
+        android:label="HelloFragment">
         <action
             android:id="@+id/action_helloFragment_to_gamesFragment"
             app:destination="@id/gamesFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_in"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_in" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/statFragment"
         android:name="com.example.everdalestat.fragments.StatFragment"
-        android:label="StatFragment" />
+        android:label="StatFragment" >
+        <argument
+            android:name="Game"
+            app:argType="com.example.everdalestat.model.Game" />
+    </fragment>
     <fragment
         android:id="@+id/gamesFragment"
         android:name="com.example.everdalestat.fragments.GamesFragment"
-        android:label="GamesFragment" >
+        android:label="GamesFragment">
         <action
             android:id="@+id/action_gamesFragment_to_statFragment"
             app:destination="@id/statFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_in"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_in"
-            />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_gamesFragment_to_addGameFragment"
+            app:destination="@id/addGameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/addGameFragment"
+        android:name="com.example.everdalestat.fragments.AddGameFragment"
+        android:label="AddGameFragment">
+
+        <action
+            android:id="@+id/action_addGameFragment_to_gamesFragment"
+            app:destination="@id/gamesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 </navigation>

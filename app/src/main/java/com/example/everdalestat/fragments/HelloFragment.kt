@@ -27,7 +27,7 @@ class HelloFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.startButton.setOnClickListener {
-            findNavController().navigate(R.id.action_helloFragment_to_statFragment)
+            findNavController().navigate(R.id.action_helloFragment_to_gamesFragment)
         }
     }
 

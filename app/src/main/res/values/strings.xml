@@ -11,4 +11,9 @@
     <string name="nickname">nickName</string>
     <string name="result">Result:</string>
     <string name="game_name">Game Name</string>
+    <string name="save">Save</string>
+    <string name="provide_game_info">Provide game info</string>
+    <string name="the_name_of_the_game">The name of the game</string>
+    <string name="minimum_number_of_players">Minimum number of players</string>
+    <string name="maximum_number_of_players">Maximum number of players</string>
 </resources>

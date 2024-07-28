@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_200">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolBarView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#5c4764"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/topic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/my_font"
+            android:text="@string/provide_game_info"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/saveButton"
+        app:layout_constraintTop_toBottomOf="@id/toolBarView"
+        tools:ignore="UselessLeaf,SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/edit_text_game_name"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:autofillHints=""
+                android:fontFamily="@font/dot"
+                android:hint="@string/the_name_of_the_game"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edit_text_min_players"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:autofillHints=""
+                android:fontFamily="@font/dot"
+                android:hint="@string/minimum_number_of_players"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edit_text_max_players"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:autofillHints=""
+                android:fontFamily="@font/dot"
+                android:hint="@string/maximum_number_of_players"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/field_1"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:autofillHints=""
+                android:fontFamily="@font/dot"
+                android:hint="field_1"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/field_2"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:autofillHints=""
+                android:fontFamily="@font/dot"
+                android:hint="field_2"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/field_3"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:autofillHints=""
+                android:fontFamily="@font/dot"
+                android:hint="field_3"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/field_4"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:autofillHints=""
+                android:fontFamily="@font/dot"
+                android:hint="field_4"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/field_5"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:autofillHints=""
+                android:fontFamily="@font/dot"
+                android:hint="field_5"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/field_6"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:autofillHints=""
+                android:fontFamily="@font/dot"
+                android:hint="field_6"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/field_7"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:autofillHints=""
+                android:fontFamily="@font/dot"
+                android:hint="field_7"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/field_8"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:autofillHints=""
+                android:fontFamily="@font/dot"
+                android:hint="field_8"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/start_button_background"
+        android:fontFamily="@font/my_font"
+        android:padding="10dp"
+        android:text="@string/save"
+        android:textColor="@color/gray"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

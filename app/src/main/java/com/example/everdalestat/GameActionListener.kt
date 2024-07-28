@@ -6,4 +6,6 @@ interface GameActionListener {
 
 
     fun onDeleteGame(game: Game)
+
+    fun onShowGameStat(game: Game)
 }

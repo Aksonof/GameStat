@@ -20,4 +20,6 @@ interface GameResultDao {
     @Delete
     suspend fun delete(gameResult: GameResult)
 
+    @Query("SELECT * FROM result_table WHERE game = :gameName")
+    fun getGamesByName(gameName: String): Flow<List<GameResult>>
 }

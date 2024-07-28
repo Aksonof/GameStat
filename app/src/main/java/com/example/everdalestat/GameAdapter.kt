@@ -14,17 +14,23 @@ class GameAdapter(private val actionListener: GameActionListener) :
 
 
     inner class GameViewHolder(
-        binding: GamePatternBinding,
+        private val binding: GamePatternBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(item: Game) {
-
+            binding.gameName.text = item.name
+            binding.removeGame.setOnClickListener {
+                actionListener.onDeleteGame(item)
+            }
+            binding.root.setOnClickListener {
+                actionListener.onShowGameStat(item)
+            }
         }
     }
 
     class MyItemCallback : DiffUtil.ItemCallback<Game>() {
         override fun areItemsTheSame(oldItem: Game, newItem: Game): Boolean {
-            return oldItem.name == newItem.name
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: Game, newItem: Game): Boolean {

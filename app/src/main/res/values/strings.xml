@@ -16,4 +16,8 @@
     <string name="the_name_of_the_game">The name of the game</string>
     <string name="minimum_number_of_players">Minimum number of players</string>
     <string name="maximum_number_of_players">Maximum number of players</string>
+    <string name="date">Date:</string>
+    <string name="default_date">12.03.1998</string>
+    <string name="enter_each_player_s_scores">Enter each player\'s scores</string>
+    <string name="name">Name:</string>
 </resources>

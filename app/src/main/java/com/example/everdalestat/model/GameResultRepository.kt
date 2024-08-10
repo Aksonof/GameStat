@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 class GameResultRepository(private val gameResultDao: GameResultDao) {
 
 
-    val allGameResults: Flow<List<GameResult>> = gameResultDao.getAllGames()
+    fun allGameResults(name: String): Flow<List<GameResult>> = gameResultDao.getGamesByName(name)
 
     @WorkerThread
     suspend fun insert(gameResult: GameResult) {

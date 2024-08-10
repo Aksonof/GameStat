@@ -63,8 +63,6 @@ class GamesFragment : Fragment() {
 
         setFragmentResultListener("requestKey") { _, bundle ->
             val gameName = bundle.getString("gameName")
-            val minPlayers = bundle.getString("minPlayers")
-            val maxPlayers = bundle.getString("maxPlayers")
             val field1 = bundle.getString("field1")
             val field2 = bundle.getString("field2")
             val field3 = bundle.getString("field3")
@@ -76,8 +74,6 @@ class GamesFragment : Fragment() {
 
             val game = Game(
                 id,
-                minPlayers!!.toInt(),
-                maxPlayers!!.toInt(),
                 field1!!,
                 field2!!,
                 field3!!,

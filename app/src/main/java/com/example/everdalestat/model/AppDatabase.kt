@@ -4,15 +4,23 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [GameResult::class, Game::class], version = 1, exportSchema = false)
+@Database(
+    entities = [GameResult::class, Game::class, PlayerResult::class],
+    version = 2,
+    exportSchema = false
+)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun gameResultDao(): GameResultDao
     abstract fun gameDao(): GameDao
+    abstract fun playerResulDao(): PlayerResultDao
 
 
     companion object {
+
 
         @Volatile
         private var INSTANCE: AppDatabase? = null

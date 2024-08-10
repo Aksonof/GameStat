@@ -19,10 +19,17 @@
     <fragment
         android:id="@+id/statFragment"
         android:name="com.example.everdalestat.fragments.StatFragment"
-        android:label="StatFragment" >
+        android:label="StatFragment">
         <argument
             android:name="Game"
             app:argType="com.example.everdalestat.model.Game" />
+        <action
+            android:id="@+id/action_statFragment_to_addGameResultFragment"
+            app:destination="@id/addGameResultFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/gamesFragment"
@@ -55,5 +62,20 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/addGameResultFragment"
+        android:name="com.example.everdalestat.fragments.AddGameResultFragment"
+        android:label="AddGameResultFragment">
+        <action
+            android:id="@+id/action_addGameResultFragment_to_statFragment"
+            app:destination="@id/statFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="game"
+            app:argType="com.example.everdalestat.model.Game" />
     </fragment>
 </navigation>

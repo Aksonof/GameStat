@@ -25,6 +25,7 @@ class GameAdapter(private val actionListener: GameActionListener) :
             binding.root.setOnClickListener {
                 actionListener.onShowGameStat(item)
             }
+
         }
     }
 

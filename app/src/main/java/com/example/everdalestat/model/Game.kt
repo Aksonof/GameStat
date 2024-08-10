@@ -10,8 +10,6 @@ import kotlinx.parcelize.Parcelize
 data class Game(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val minNumberOfPlayers: Int,
-    val maxNumberOfPlayers: Int,
     val value1: String,
     val value2: String,
     val value3: String,
@@ -21,4 +19,4 @@ data class Game(
     val value7: String,
     val value8: String,
     val name: String
-): Parcelable
+) : Parcelable

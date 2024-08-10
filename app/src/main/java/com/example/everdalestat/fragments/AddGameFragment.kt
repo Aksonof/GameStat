@@ -29,8 +29,6 @@ class AddGameFragment : Fragment() {
 
         binding.saveButton.setOnClickListener {
             val gameName = binding.editTextGameName.text.toString()
-            val minPlayers = binding.editTextMinPlayers.text.toString()
-            val maxPlayers = binding.editTextMaxPlayers.text.toString()
             val field1 = binding.field1.text.toString()
             val field2 = binding.field2.text.toString()
             val field3 = binding.field3.text.toString()
@@ -42,8 +40,6 @@ class AddGameFragment : Fragment() {
 
             val bundle = bundleOf(
                 "gameName" to gameName,
-                "minPlayers" to minPlayers,
-                "maxPlayers" to maxPlayers,
                 "field1" to field1,
                 "field2" to field2,
                 "field3" to field3,

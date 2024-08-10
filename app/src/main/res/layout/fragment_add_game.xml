@@ -55,30 +55,6 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/edit_text_min_players"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:autofillHints=""
-                android:fontFamily="@font/dot"
-                android:hint="@string/minimum_number_of_players"
-                android:inputType="number"
-                android:textColor="@color/black"
-                android:textColorHint="@color/gray"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/edit_text_max_players"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:autofillHints=""
-                android:fontFamily="@font/dot"
-                android:hint="@string/maximum_number_of_players"
-                android:inputType="number"
-                android:textColor="@color/black"
-                android:textColorHint="@color/gray"
-                android:textSize="20sp" />
-
-            <EditText
                 android:id="@+id/field_1"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"

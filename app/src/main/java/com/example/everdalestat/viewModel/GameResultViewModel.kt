@@ -10,7 +10,8 @@ import kotlinx.coroutines.launch
 
 class GameResultViewModel(private val repository: GameResultRepository) : ViewModel() {
 
-    val allGameResults: LiveData<List<GameResult>> = repository.allGameResults.asLiveData()
+    fun allGameResults(name: String): LiveData<List<GameResult>> =
+        repository.allGameResults(name).asLiveData()
 
     fun insert(gameResult: GameResult) = viewModelScope.launch {
         repository.insert(gameResult)

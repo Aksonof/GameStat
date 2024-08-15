@@ -24,8 +24,7 @@ class GamesFragment : Fragment() {
     private lateinit var adapter: GameAdapter
     private val viewModel: GameViewModel by viewModels { GameViewModelFactory((requireActivity().application as App).gameRepository) }
     private var _binding: FragmentGamesBinding? = null
-    private val binding
-        get() = _binding!!
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,

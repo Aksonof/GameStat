@@ -14,9 +14,10 @@ interface PlayerResultDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(playerResult: PlayerResult)
 
+
     @Delete
     suspend fun delete(playerResult: PlayerResult)
 
     @Query("SELECT * FROM player_result_table WHERE playerResultId = :playerResultId")
-    fun getPlayerResById(playerResultId: Int): Flow<List<PlayerResult>>
+    fun getPlayerResById(playerResultId: String): Flow<List<PlayerResult>>
 }

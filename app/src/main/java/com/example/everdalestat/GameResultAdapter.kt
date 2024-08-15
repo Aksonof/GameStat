@@ -21,7 +21,7 @@ class GameResultAdapter(private val actionListener: GameResultActionListener) :
 
             binding.sum.text = item.sum.toString()
             binding.nickName.text = item.winner
-            binding.date.text = item.date.toString()
+            binding.date.text = item.date
 
             binding.details.setOnClickListener {
                 actionListener.onDetails(item.playerResultId)
@@ -34,7 +34,7 @@ class GameResultAdapter(private val actionListener: GameResultActionListener) :
 
     class MyItemCallback : DiffUtil.ItemCallback<GameResult>() {
         override fun areItemsTheSame(oldItem: GameResult, newItem: GameResult): Boolean {
-            return oldItem.playerResultId == newItem.playerResultId
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: GameResult, newItem: GameResult): Boolean {

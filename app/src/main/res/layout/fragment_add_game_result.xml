@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/purple_200">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toolBarView"
         android:layout_width="match_parent"
@@ -46,6 +45,17 @@
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/done"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/done"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

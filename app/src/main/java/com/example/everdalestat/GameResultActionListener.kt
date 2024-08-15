@@ -6,5 +6,5 @@ interface GameResultActionListener {
 
     fun onDeleteGameResult(gameResult: GameResult)
 
-    fun onDetails(resultId: Int)
+    fun onDetails(resultId: String)
 }

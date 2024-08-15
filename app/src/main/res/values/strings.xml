@@ -20,4 +20,8 @@
     <string name="default_date">12.03.1998</string>
     <string name="enter_each_player_s_scores">Enter each player\'s scores</string>
     <string name="name">Name:</string>
+    <string name="enter_the_player_s_earned_points">Enter the player\'s earned points</string>
+    <string name="share_your_points">Share your points</string>
+    <string name="who_are_you">Who are you?</string>
+    <string name="fill_in_the_fields">Fill in the fields</string>
 </resources>

@@ -1,10 +1,11 @@
 package com.example.everdalestat.fragments
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
@@ -35,12 +36,14 @@ class GamesFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = GameAdapter(object : GameActionListener {
             override fun onDeleteGame(game: Game) {
                 viewModel.delete(game)
             }
+
             override fun onShowGameStat(game: Game) {
                 val action = GamesFragmentDirections.actionGamesFragmentToStatFragment(game)
                 findNavController().navigate(action)
@@ -54,39 +57,16 @@ class GamesFragment : Fragment() {
             adapter.submitList(it)
         }
 
-
         binding.addGame.setOnClickListener {
             findNavController().navigate(R.id.action_gamesFragment_to_addGameFragment)
-
         }
 
-        setFragmentResultListener("requestKey") { _, bundle ->
-            val gameName = bundle.getString("gameName")
-            val field1 = bundle.getString("field1")
-            val field2 = bundle.getString("field2")
-            val field3 = bundle.getString("field3")
-            val field4 = bundle.getString("field4")
-            val field5 = bundle.getString("field5")
-            val field6 = bundle.getString("field6")
-            val field7 = bundle.getString("field7")
-            val field8 = bundle.getString("field8")
-
-            val game = Game(
-                id,
-                field1!!,
-                field2!!,
-                field3!!,
-                field4!!,
-                field5!!,
-                field6!!,
-                field7!!,
-                field8!!,
-                gameName!!
-            )
-
-            viewModel.insert(game)
+        setFragmentResultListener("getGame") { _, bundle ->
+            val game = bundle.getParcelable("game", Game::class.java)
+            if (game != null) {
+                viewModel.insert(game)
+            }
         }
-
 
     }
 

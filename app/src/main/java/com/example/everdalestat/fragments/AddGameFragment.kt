@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.example.everdaleStat.databinding.FragmentAddGameBinding
+import com.example.everdalestat.model.Game
 
 class AddGameFragment : Fragment() {
 
@@ -28,31 +29,25 @@ class AddGameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.saveButton.setOnClickListener {
-            val gameName = binding.editTextGameName.text.toString()
-            val field1 = binding.field1.text.toString()
-            val field2 = binding.field2.text.toString()
-            val field3 = binding.field3.text.toString()
-            val field4 = binding.field4.text.toString()
-            val field5 = binding.field5.text.toString()
-            val field6 = binding.field6.text.toString()
-            val field7 = binding.field7.text.toString()
-            val field8 = binding.field8.text.toString()
 
-            val bundle = bundleOf(
-                "gameName" to gameName,
-                "field1" to field1,
-                "field2" to field2,
-                "field3" to field3,
-                "field4" to field4,
-                "field5" to field5,
-                "field6" to field6,
-                "field7" to field7,
-                "field8" to field8
+            val game = Game(
+                id,
+                binding.field1.text.toString(),
+                binding.field2.text.toString(),
+                binding.field3.text.toString(),
+                binding.field4.text.toString(),
+                binding.field5.text.toString(),
+                binding.field6.text.toString(),
+                binding.field7.text.toString(),
+                binding.field8.text.toString(),
+                binding.editTextGameName.text.toString()
             )
-            setFragmentResult("requestKey", bundle)
+
+            val bundle = bundleOf("game" to game)
+
+            setFragmentResult("getGame", bundle)
             findNavController().popBackStack()
         }
-
     }
 
     override fun onDestroyView() {

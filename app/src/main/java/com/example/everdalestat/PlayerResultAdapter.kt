@@ -1,6 +1,5 @@
 package com.example.everdalestat
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,7 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.everdaleStat.databinding.PlayerResultPatternBinding
 import com.example.everdalestat.model.PlayerResult
-import com.example.everdalestat.viewModel.PlayerResultActionListener
 
 class PlayerResultAdapter(private val actionListener: PlayerResultActionListener) :
     ListAdapter<PlayerResult, PlayerResultAdapter.PlayerResultViewHolder>(MyItemCallback()) {
@@ -22,6 +20,10 @@ class PlayerResultAdapter(private val actionListener: PlayerResultActionListener
 
             binding.remove.setOnClickListener {
                 actionListener.onDeletePlayerResult(item)
+            }
+
+            binding.details.setOnClickListener {
+                actionListener.onEditPlayerResult(item)
             }
 
         }

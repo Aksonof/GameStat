@@ -27,6 +27,10 @@ class PlayerResultViewModel(private val repository: PlayerResultRepository) : Vi
         repository.delete(playerResult)
     }
 
+    fun edit(playerResult: PlayerResult) = viewModelScope.launch {
+        repository.edit(playerResult)
+    }
+
 
     fun getOrCreateGameId(): String {
         if (playerResultId == null) {

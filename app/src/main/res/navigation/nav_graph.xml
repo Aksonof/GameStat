@@ -84,9 +84,18 @@
         android:label="EnterPointsFragment">
         <argument
             android:name="game"
-            app:argType="com.example.everdalestat.model.Game" />
+
+            app:argType="com.example.everdalestat.model.Game"
+             />
         <argument
             android:name="playerResultId"
-            app:argType="string" />
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="playerResult"
+            android:defaultValue="@null"
+            app:argType="com.example.everdalestat.model.PlayerResult"
+            app:nullable="true" />
     </fragment>
 </navigation>

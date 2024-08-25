@@ -1,5 +1,6 @@
 package com.example.everdalestat.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,7 +19,7 @@ import com.example.everdalestat.App
 import com.example.everdalestat.PlayerResultAdapter
 import com.example.everdalestat.model.GameResult
 import com.example.everdalestat.model.PlayerResult
-import com.example.everdalestat.viewModel.PlayerResultActionListener
+import com.example.everdalestat.PlayerResultActionListener
 import com.example.everdalestat.viewModel.PlayerResultViewModel
 import com.example.everdalestat.viewModel.PlayerResultViewModelFactory
 import java.time.LocalDate
@@ -41,12 +42,27 @@ class AddGameResultFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("NewApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         adapter = PlayerResultAdapter(object : PlayerResultActionListener {
+
             override fun onDeletePlayerResult(playerResult: PlayerResult) {
                 viewModel.delete(playerResult)
             }
+
+            override fun onEditPlayerResult(playerResult: PlayerResult) {
+                val action =
+                    AddGameResultFragmentDirections.actionAddGameResultFragmentToEnterPointsFragment(
+                        args.game,
+                        null,
+                        playerResult
+                    )
+                findNavController().navigate(action)
+            }
+
+
         })
         val layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
@@ -66,10 +82,22 @@ class AddGameResultFragment : Fragment() {
         }
 
 
-        setFragmentResultListener("requestKey") { _, bundle ->
+        setFragmentResultListener("insertKey") { _, bundle ->
             val playerResult = bundle.getParcelable("playerResult", PlayerResult::class.java)
             if (playerResult != null) {
                 viewModel.insert(playerResult)
+
+                viewModel.playersResult[playerResult.name] =
+                    playerResult.value1 + playerResult.value2 + playerResult.value3 +
+                            playerResult.value4 + playerResult.value5 + playerResult.value6 +
+                            playerResult.value7 + playerResult.value8
+            }
+        }
+
+        setFragmentResultListener("editKey") { _, bundle ->
+            val playerResult = bundle.getParcelable("playerResult", PlayerResult::class.java)
+            if (playerResult != null) {
+                viewModel.edit(playerResult)
 
                 viewModel.playersResult[playerResult.name] =
                     playerResult.value1 + playerResult.value2 + playerResult.value3 +

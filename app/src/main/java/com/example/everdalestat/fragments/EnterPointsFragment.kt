@@ -1,6 +1,7 @@
 package com.example.everdalestat.fragments
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,11 +15,12 @@ import com.example.everdaleStat.databinding.FragmentEnterPointsBinding
 import com.example.everdalestat.model.PlayerResult
 
 class EnterPointsFragment : Fragment() {
-
-
+    
     private var _binding: FragmentEnterPointsBinding? = null
     private val binding: FragmentEnterPointsBinding get() = _binding!!
     private val args: EnterPointsFragmentArgs by navArgs()
+
+    private var onEditMode = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,16 +34,23 @@ class EnterPointsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setFieldVisibility(binding.field1, args.game.value1)
-        setFieldVisibility(binding.field2, args.game.value2)
-        setFieldVisibility(binding.field3, args.game.value3)
-        setFieldVisibility(binding.field4, args.game.value4)
-        setFieldVisibility(binding.field5, args.game.value5)
-        setFieldVisibility(binding.field6, args.game.value6)
-        setFieldVisibility(binding.field7, args.game.value7)
-        setFieldVisibility(binding.field8, args.game.value8)
+        if (args.playerResult != null) {
+            onEditMode = true
+            binding.name.setText(args.playerResult!!.name)
+        }
+
+        setFieldVisibility(binding.field1, args.game.value1, args.playerResult?.value1.toString())
+        setFieldVisibility(binding.field2, args.game.value2, args.playerResult?.value2.toString())
+        setFieldVisibility(binding.field3, args.game.value3, args.playerResult?.value3.toString())
+        setFieldVisibility(binding.field4, args.game.value4, args.playerResult?.value4.toString())
+        setFieldVisibility(binding.field5, args.game.value5, args.playerResult?.value5.toString())
+        setFieldVisibility(binding.field6, args.game.value6, args.playerResult?.value6.toString())
+        setFieldVisibility(binding.field7, args.game.value7, args.playerResult?.value7.toString())
+        setFieldVisibility(binding.field8, args.game.value8, args.playerResult?.value8.toString())
+
 
         binding.saveButton.setOnClickListener {
+
             val playerName = binding.name.text.toString()
 
             val fields = listOf(
@@ -52,10 +61,13 @@ class EnterPointsFragment : Fragment() {
             val fieldValues = fields.map { field ->
                 field.text.toString().toIntOrNull() ?: 0
             }
-
+            var id = 0
+            if (onEditMode) {
+                id = args.playerResult?.id ?: 0
+            }
             val playerResult = PlayerResult(
-                0,
-                args.playerResultId,
+                id,
+                args.playerResultId.toString(),
                 fieldValues[0], fieldValues[1], fieldValues[2], fieldValues[3],
                 fieldValues[4], fieldValues[5], fieldValues[6], fieldValues[7],
                 playerName
@@ -65,17 +77,23 @@ class EnterPointsFragment : Fragment() {
                 "playerResult" to playerResult
             )
 
-            setFragmentResult("requestKey", bundle)
+            setFragmentResult("editKey", bundle)
+            setFragmentResult("insertKey", bundle)
             findNavController().popBackStack()
         }
 
     }
 
 
-    private fun setFieldVisibility(field: TextView, value: String) {
+    private fun setFieldVisibility(field: TextView, hint: String, value: String) {
         if (value.isNotEmpty()) {
-            field.hint = value
+            field.hint = hint
             field.visibility = View.VISIBLE
+
+            if (onEditMode) {
+                field.text = value
+            }
+
         } else {
             field.visibility = View.GONE
         }

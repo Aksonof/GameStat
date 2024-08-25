@@ -1,6 +1,5 @@
 package com.example.everdalestat.model
 
-import androidx.annotation.WorkerThread
 import kotlinx.coroutines.flow.Flow
 
 class PlayerResultRepository(private val playerResultDao: PlayerResultDao) {
@@ -17,5 +16,8 @@ class PlayerResultRepository(private val playerResultDao: PlayerResultDao) {
         playerResultDao.delete(playerResult)
     }
 
+    suspend fun edit(playerResult: PlayerResult) {
+        playerResultDao.editPlayerResult(playerResult)
+    }
 
 }

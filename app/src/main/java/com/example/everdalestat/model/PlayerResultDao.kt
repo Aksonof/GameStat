@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 
@@ -20,4 +21,7 @@ interface PlayerResultDao {
 
     @Query("SELECT * FROM player_result_table WHERE playerResultId = :playerResultId")
     fun getPlayerResById(playerResultId: String): Flow<List<PlayerResult>>
+
+    @Update
+    suspend fun editPlayerResult(playerResult: PlayerResult)
 }
